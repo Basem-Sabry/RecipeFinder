@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{
+  --primary: 240 125 45;
+  --muted: 110 122 132;
+
+}
+
+a{
+  text-decoration: underline;
+  color: blue;
+}
+ol,ul{
+  list-style: auto;
+  padding: 0 2em;
+}

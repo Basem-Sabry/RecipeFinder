@@ -1,0 +1,6 @@
+.activeLink::after{
+  content: '';
+  @apply bg-primary -bottom-1 absolute left-[15%] block w-3/4 h-0.5
+
+}
+

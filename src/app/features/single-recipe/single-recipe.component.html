@@ -1,0 +1,41 @@
+<div class="container xl:px-32 lg:pb-16 px-4" *ngIf="singleRecipe">
+<div class="grid lg:grid-cols-5 grid-cols-1  gap-x-8 lg:mt-16">
+  <div class="lg:col-span-3 relative">
+    <span class="absolute right-2 top-2 cursor-pointer fill-primary bg-white rounded-full p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" (click)="singleRecipe.isLiked = true;setFavorite(singleRecipe)" viewBox="0 0 24 24" width="32" height="32" *ngIf="!singleRecipe.isLiked"><g id="_01_align_center" data-name="01 align center"><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z"/></g></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1"  data-name="Layer 1" viewBox="0 0 24 24" width="32" height="32" *ngIf="singleRecipe.isLiked" (click)="singleRecipe.isLiked = false ; "><path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917Z"/></svg>
+
+    </span>
+    <img class=" lg:max-h-[450px] rounded-2xl w-full object-cover" [src]="singleRecipe.image">
+  </div>
+  <div class="lg:col-span-2">
+    <div class="flex flex-col gap-y-2">
+      <div class="font-semibold text-xl">
+        {{singleRecipe.title}}
+      </div>
+      <div>
+        <span class="text-primary font-semibold">${{singleRecipe.pricePerServing}}</span>/per serving
+      </div>
+      <div class="text-muted " [innerHTML]="singleRecipe.summary">
+
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xl font-semibold my-2">Ingredients</span>
+        <div class="flex gap-2 flex-wrap items-center ">
+
+          @for (ingredient of singleRecipe.extendedIngredients; track ingredient.id) {
+            <span class="bg-primary p-1 text-white rounded-lg capitalize">
+            {{ingredient.name}}
+            </span>
+          }
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" flex flex-col">
+  <span>Instructions</span>
+  <div [innerHTML]="singleRecipe.instructions"></div>
+</div>
+</div>

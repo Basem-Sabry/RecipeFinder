@@ -1,0 +1,6 @@
+.singleRecipe{
+  @apply flex flex-col border border-primary rounded-lg  relative
+}
+.recipeImage{
+ @apply w-full object-contain rounded-lg rounded-b-none cursor-pointer
+}
