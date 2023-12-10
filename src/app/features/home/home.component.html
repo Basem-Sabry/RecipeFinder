@@ -1,5 +1,5 @@
 <div class="container md:px-16 mt-8">
-  <div class="grid gap-4 md:grid-cols-3 mb-8  grid-cols-1" [class.md:grid-cols-1]="recipes.length == 0">
+  <div class="grid gap-4 mb-8  grid-cols-1" [ngClass]="recipes.length > 0 ? 'md:grid-cols-3':'md:grid-cols-1'">
     @for (recipe of recipes; track recipe.id) {
       <div class="singleRecipe " >
         <span class="absolute right-2 top-2 cursor-pointer fill-primary bg-white rounded-full p-2">
